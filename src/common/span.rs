@@ -25,6 +25,16 @@ impl<'a> Location<'a> {
   pub fn new_end(source: &'a str) -> Self {
     Self::new(source.len() - 1, source)
   }
+
+  /// Advances to the next index
+  pub fn advance(&mut self) {
+    self.index += 1;
+  }
+
+  /// Returns a copy that is advanced to the next index
+  pub fn advanced(&self) -> Self {
+    Self { source: self.source, index: self.index + 1 }
+  }
 }
 
 /// References a span within some source.

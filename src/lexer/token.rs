@@ -4,6 +4,7 @@ pub struct Token<'a> {
   span: Span<'a>,
   flag: Flag<'a>,
   kind: TokenKind,
+  lexeme: &'a str
 }
 
 pub enum TokenKind {
