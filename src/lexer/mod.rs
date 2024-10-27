@@ -1,12 +1,13 @@
 pub mod token;
+pub mod r#impl;
 
-pub struct Lexer<'a> {
-  source: &'a str,
+pub struct Lexer {
+  source: String,
   current: usize,
 }
 
-impl<'a> Lexer<'a> {
-  pub fn new(source: &'a str) -> Self {
+impl Lexer {
+  pub fn new(source: String) -> Self {
     Self { source, current: 0 }
   }
 

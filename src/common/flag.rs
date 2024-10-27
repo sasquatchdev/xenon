@@ -1,21 +1,22 @@
 /// Represents additional information on some
 /// arbitrary data.
-pub enum Flag<'a> {
+#[derive(Debug, Clone)]
+pub enum Flag {
   /// No additional information
   None,
 
   /// Optional, no action required.
   /// This includes negligable performance matters or
   /// style guidelines.
-  Suggestion(&'a str),
+  Suggestion(String),
 
   /// Still Optional, action reccomended.
   /// This includes major performance matters, dead code
   /// or known runtime issues.
-  Warning(&'a str),
+  Warning(String),
 
   /// Mandatory, action required.
   /// Anything more important than a warning. Contains
   /// lexical, syntactical and codegen errors.
-  Error(&'a str)
+  Error(String)
 }

@@ -1,12 +1,18 @@
 use crate::common::{flag::Flag, span::Span};
 
-pub struct Token<'a> {
-  span: Span<'a>,
-  flag: Flag<'a>,
+/// Represents a single token in the source code.
+/// This could be a keyword, identifier, literal, etc.
+#[derive(Debug, Clone)]
+pub struct Token {
+  span: Span,
+  flag: Flag,
   kind: TokenKind,
-  lexeme: &'a str
+  lexeme: String
 }
 
+/// Represents the kind of a token.
+/// This is used to determine how to interpret the token.
+#[derive(Debug, Clone)]
 pub enum TokenKind {
   FloatingPointLiteral(f64),
 
